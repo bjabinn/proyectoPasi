@@ -6,9 +6,7 @@ package tickets.bean;
 
 import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
 import javax.faces.component.html.HtmlDataTable;
-import javax.faces.context.FacesContext;
 import tickets.bean.utils.AbstractBean;
 import tickets.dao.UsuarioDao;
 import tickets.pojo.Usuario;
