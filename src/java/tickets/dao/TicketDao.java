@@ -7,10 +7,8 @@ package tickets.dao;
 import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.Session;
-import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import tickets.hibernate.HibernateManager;
-import tickets.pojo.Estado;
 import tickets.pojo.Ticket;
 import tickets.pojo.Usuario;
 
