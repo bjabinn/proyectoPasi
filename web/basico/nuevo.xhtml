@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="/template.xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:ace="http://www.icefaces.org/icefaces/components"
+      xmlns:ice="http://www.icesoft.com/icefaces/component">
+    <ui:define name="cuerpo">
+        <h:form>
+            <p>Ticket Nº: #{formBasicoBean.ticket.id}</p>
+            <p>Estado: #{formBasicoBean.ticket.estado.nombre} </p>
+            <ice:panelGroup rendered="#{! formBasicoBean.isCerrado}">
+            <ace:textEntry value="#{formBasicoBean.mensaje.asunto}"
+                           label="Asunto" labelPosition="left"
+                           required="true"
+                           requiredIndicator="*"/>
+            <br/>
+            <ace:textAreaEntry value="#{formBasicoBean.mensaje.cuerpo}"
+                               label="Detalles" labelPosition="top"
+                               />
+            <ace:pushButton value="Enviar" action="#{formBasicoBean.save()}"/>
+            <ace:pushButton immediate="true" value="Cancelar" action="#{formBasicoBean.cancel()}"/>
+            <ace:pushButton immediate="true" value="Cerrar ticket" action="#{formBasicoBean.cerrar()}"/>
+            </ice:panelGroup>
+            <ace:pushButton rendered="#{formBasicoBean.isCerrado}" immediate="true" value="Volver" action="#{formBasicoBean.cancel()}"/>
+            <ace:dataTable var="item" value="#{formBasicoBean.ticket.mensajes}">
+                <ace:column headerText="Asunto">
+                    #{item.asunto}
+                </ace:column>
+                <ace:column headerText="Detalles">
+                    #{item.cuerpo}
+                </ace:column>
+                <ace:column headerText="Fecha">
+                    <h:outputText value="#{item.mensaje}">
+                        <f:convertDateTime pattern="d/M/y"/>
+                    </h:outputText>
+                </ace:column>
+            </ace:dataTable>
+            
+        </h:form>
+</ui:define>
+</ui:composition>
+

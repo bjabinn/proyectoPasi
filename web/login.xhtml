@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="/template.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:ace="http://www.icefaces.org/icefaces/components"
+                >
+            <ui:define name="cuerpo">
+        <h:form>
+            <table>
+                <tr>
+                    <td>Usuario</td>
+                    <td><ace:textEntry value="#{loginBean.usuario}"/></td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td><h:inputSecret value="#{loginBean.password}"/></td>
+                </tr>
+                <tr>
+                    <td><h:commandButton action="#{loginBean.login()}" value="Login"/></td>
+                </tr>
+            </table>
+        </h:form>
+                </ui:define>
+            </ui:composition>
+

@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h1>Insertar nuevo usuario</h1>
+        <h:panelGroup layout="block">
+            <h:form>
+            <table>
+                <tr>
+                    <td>    Usuario</td>
+                    <td><h:inputText value="#{formUsuariosBean.usuario.usuario}" id="nombre" required="true" requiredMessage="Es obligatorio introducir un nombre de usuario"/> <h:message styleClass="form_error" for="nombre"/></td>
+                </tr>
+                <tr>
+                    <td>    Contraseña</td>
+                    <td><h:inputSecret value="#{formUsuariosBean.usuario.password}" id="pass" required="true" requiredMessage="No puede dejar la contraseña vacia"/><h:message styleClass="form_error" for="pass"/></td>
+                </tr>
+                <tr>
+                    
+                    <td>    Rol</td>
+                    <td><h:selectOneMenu value="#{formUsuariosBean.usuario.rol}">
+                            <f:selectItems value="#{formUsuariosBean.roles}"/>
+                            <f:converter converterId="tickets.RolConverter"/>
+                        </h:selectOneMenu>
+                    </td>
+                </tr>
+                <tr>
+                    <td>    Nombre</td>
+                    <td><h:inputText value="#{formUsuariosBean.usuario.nombre}" required="true"/></td>
+                </tr>
+                <tr>
+                    <td>    Apellidos</td>
+                    <td><h:inputText  value="#{formUsuariosBean.usuario.apellidos}"/></td>
+                </tr>
+                <tr>
+                    <td>    Sexo</td>
+                    <td>
+                        <h:selectOneRadio value="#{formUsuariosBean.usuario.sexo}" >
+                            <f:selectItems value="#{formUsuariosBean.opciones}"/>
+                            <f:converter converterId="tickets.GenderConverter" />
+                        </h:selectOneRadio></td>
+                </tr>
+                <tr>
+                    <td> Telefono</td>
+                    <td><h:inputText value="#{formUsuariosBean.usuario.telefono}">
+                            <f:convertNumber integerOnly="true" minIntegerDigits="9" maxIntegerDigits="15" pattern="#"/>
+                        </h:inputText>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Correo</td>
+                    <td><h:inputText value="#{formUsuariosBean.usuario.correo}"/></td>
+                </tr>
+                <tr>
+                    <td><h:commandButton  value="Guardar" action="#{formUsuariosBean.save}"/></td>
+                    <td><h:commandButton  value="Cancelar" action="#{formUsuariosBean.cancel}" immediate="true"/></td>
+                </tr>
+            </table>
+                </h:form>
+        </h:panelGroup>
+    </h:body>
+</html>
+

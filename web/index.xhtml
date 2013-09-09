@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+  
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    
+    <h:body>
+        Hello from Facelets
+        #{sessionScope.user.nombre != null ? "pato" : "pato3"}
+        <h:link outcome="usuarios">Usuarios</h:link>
+        <br/>
+        <h:link outcome="estados">Estados</h:link>
+        <h:dataTable value="#{index.listaUsuarios}" var="item">
+            <h:column>
+                #{item.nombre}
+            </h:column>
+        </h:dataTable>
+        <hr/>
+            #{sessionScope.user.nombre != null ? "pato" : "pato3"}
+    </h:body>
+</html>
+

@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <table>
+                <tr>
+                    <td>Nombre</td>
+                    <td><h:inputText value="#{formRolBean.rol.nombre}"/></td>
+                </tr>
+                <tr>
+                    <td>Descripcion</td>
+                    <td><h:inputText value="#{formRolBean.rol.descripcion}"/></td>
+                </tr>
+                <tr>
+                    <td><h:commandButton action="#{formRolBean.save}" value="Guardar"/> </td>
+                    <td><h:commandButton immediate="true" action="#{formRolBean.cancel}" value="Cancel"/></td>
+                </tr>
+            </table>
+        </h:form>
+    </h:body>
+</html>
+
